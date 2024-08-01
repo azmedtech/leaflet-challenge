@@ -24,11 +24,11 @@ legend.onAdd = function() {
     // Loop through legend colors and labels to create the legend
     legendColors.forEach((color, index) => {
         labels.push(
-            '<i style="background:' + color + '"></i> ' + legendLabels[index]
+            '<div class="legend-item"><div class="color-block" style="background:' + color + '"></div>' + legendLabels[index] + '</div>'
         );
     });
 
-    div.innerHTML += '<ul>' + labels.join('<br>') + '</ul>';
+    div.innerHTML += '<div class="legend">' + labels.join('') + '</div>';
     return div;
 };
 
@@ -50,16 +50,20 @@ fetch('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojso
 
             // Calculate the fill color based on the depth
             let fillColor;
-            if (depth < 100) {
-                fillColor = legendColors[0];
-            } else if (depth < 200) {
-                fillColor = legendColors[1];
-            } else if (depth < 300) {
-                fillColor = legendColors[2];
-            } else if (depth < 400) {
-                fillColor = legendColors[3];
+            if (depth < 20) {
+                fillColor = legendColors[0]; // <20 km
+            } else if (depth < 40) {
+                fillColor = legendColors[1]; // 20-40 km
+            } else if (depth < 60) {
+                fillColor = legendColors[2]; // 40-60 km
+            } else if (depth < 80) {
+                fillColor = legendColors[3]; // 60-80 km
+            } else if (depth < 100) {
+                fillColor = legendColors[4]; // 80-100 km
+            } else if (depth < 120) {
+                fillColor = legendColors[5]; // 100-120 km
             } else {
-                fillColor = legendColors[4];
+                fillColor = legendColors[6]; // >120 km
             }
 
             // Create a circle marker for each earthquake with fill color based on depth
