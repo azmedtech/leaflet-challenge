@@ -25,7 +25,7 @@ To deploy your visualization successfully, ensure you have the following essenti
 ### Visualization
 An example of the final visualization is shown below. Your final visualization must include these same features at minimum, but feel free to challenge yourself to add complexity to your final product.
 
-![Earthquake Data Visualization](https://azmedtech.github.io/leaflet-challenge/)
+![Image Alt Text](Images/2-BasicMap.png)
 
 ### Resources
 OpenStreetMap: Source of the map tiles.
